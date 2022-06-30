@@ -4,7 +4,7 @@ import { ReactMediaRecorder } from 'react-media-recorder'
 const VideoPlayer = (props) => {
 
   return (
-    <div style>
+    <div>
       <ReactMediaRecorder
         video
         render={({ status, startRecording, stopRecording }) => (
