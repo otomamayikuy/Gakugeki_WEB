@@ -10,7 +10,7 @@ const VideoPlayer = (props) => {
         render={({ status, startRecording, stopRecording }) => (
           <div>
             <p>{status}</p>            
-            <video src={props.VideoURL}/>
+            <video src={props.VideoURL} controls/>
           </div>
         )}
       />
