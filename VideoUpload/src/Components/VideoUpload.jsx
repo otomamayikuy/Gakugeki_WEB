@@ -15,4 +15,9 @@ const VideoUpload = (props) => {
             <h1 class="Header">
                 <a> ヘッダー</a>
             </h1>
-        </
+        </div>
+        </header>
+    )
+}
+
+export default VideoUpload;
