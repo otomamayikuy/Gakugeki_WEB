@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,21 +33,146 @@
   }
 }
 .videoPlayer {
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
   width:960px;
   height:540px;
 }
+.contents {
+  width:75%;
+}
 .blackScreen {
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
   background-color: black;
   width: 960px;
   height: 540px;
 }
 .othervideos {
-  position:absolute;
-  width:calc(100% - 960px);
-  height:100%;
+  position:relative;
+  width:300px;
   text-align: left;
-  left: 960px;
+  left: 100%;
+  transform:translateX(-100%);
 }
-.othervideos p {
+.othervideos {
   text-align: center;
+}
+.main {
+  display:flex;
+}
+.screen {
+  background-color: #224;
+}
+.commentArea {
+  position:relative;
+  height:370px;
+  width:90%;
+  left:5%;
+  margin-bottom:30px;
+}
+.comment {
+  position:absolute;
+  height: 75%;
+  width:90%;
+  left:5%;
+  top:15%;
+  background-color: #556;
+  color:white;
+}
+.commentArea div span {
+  display:flex;
+  top:100%;
+  height:30px;
+  justify-content:space-around;
+  transform:translateX(-30px);
+}
+.commentArea div span p {
+  margin:auto;
+}
+.commentArea div span button{
+  height:30px;
+  width:60px;
+  background-color: #556;
+  color:white;
+}
+.reportsArea span {
+  position:relative;
+  left:10%;
+}
+.reportsArea span textarea {
+  width:80%;
+  height:60px;
+  background-color: #556;
+  color:white;
+}
+.reportsArea span button {
+  position:relative;
+  width:50px;
+  background-color: #556;
+  color:white;
+  transform: translateY(-7px);
+}
+.commentArea div {
+  position:absolute;
+  width:150px;
+  top:100%;
+  left:100%;
+  transform:translate(-100%,-100%)
+}
+.report {
+  width:100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.otherComment {
+  width:80%;
+  margin-left: 5%;
+  padding-left: 5%;
+}
+.commentTitle {
+  position:absolute;
+  left:5%;
+  top:15px;
+  width:300px;
+  height:30px;
+  background-color: #556;
+  color:white;
+}
+.reportExplain {
+  display:inline;
+}
+p {
+  font-size: 15px;
+  color:white;
+}
+h2 {
+  color:white;
+  width:90%;
+  margin-left: 5%;
+}
+.underTitle h3 {
+  color:white;
+  width:86%;
+  margin-left: 7%;
+}
+h3 {
+  color:white;
+}
+h2 p {
+  font-weight:normal;
+}
+.underTitle p {
+  width:80%;
+  margin-left: 10%;
+}
+.reportsArea {
+  background-color: #335;
+}
+.reportComment {
+  position:relative;
+  width:90%;
+  left:5%;
 }

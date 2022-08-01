@@ -3,7 +3,7 @@ const Header = (props) => {
         width:"100%",
         textAlign: "left",
         display:"inline-block",
-        backgroundColor: "#86b5eb"
+        backgroundColor: "#222"
     }
     return (
         <header>

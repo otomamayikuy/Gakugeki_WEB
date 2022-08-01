@@ -4,7 +4,7 @@ const Footer = (props) => {
         width: "100%",
         bottom: "0",
         display:"inline-block",
-        background:"#86b5eb"
+        background:"#222"
     }
     return (
         <footer>
