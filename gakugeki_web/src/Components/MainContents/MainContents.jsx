@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { doc, setDoc } from "firebase/firestore";
 
 const MainContents = (props) => {
-    console.log("レンダリングされました")
     const [reports, setReports] = useState([]);
     if(reports!==props.reports) {
         setReports(props.reports)
@@ -74,12 +73,12 @@ const MainContents = (props) => {
                 <h3>ゲスト：名前</h3>
                 <p>ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明</p>
             </div>
-            <h2 className="report">思考レポート<p className="reportExplain">　タイトル：50字以下　本文：300字以上1000字以下</p></h2>
+            <h2 className="report">思考レポート<p className="reportExplain">　タイトル：50字以下　本文：100字以上1000字以下</p></h2>
             <div className="commentArea">
                 <input className="commentTitle" value={title} onChange={(e) => setTitle(e.target.value)}></input>
                 <textarea className="comment" value={comment} onChange={(e) => setComments(e.target.value)}></textarea>
                 <div><span><p>{comment.length}文字</p>
-                <button value="送信" disabled={comment.length<300 || comment.length>1000 || title.length===0 || title.length>50} onClick={()=> submit()}>送信</button></span></div>
+                <button value="送信" disabled={comment.length<100 || comment.length>1000 || title.length===0 || title.length>50} onClick={()=> submit()}>送信</button></span></div>
             </div>
             <h2>レポート一覧<p className="reportExplain">　タイトルをクリックして内容を見ることができます</p></h2>
             <div className="otherComment">
