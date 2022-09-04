@@ -37,7 +37,7 @@ const MainContents = (props) => {
     const [title, setTitle] = useState("");
     const [comment, setComments] = useState("");
     let comment_number = reports.length;
-    const DocumentRef = doc(props.db, 'comments', 'comment'+String(comment_number+1));
+    const DocumentRef = doc(props.db, props.title+'comments', 'comment'+String(comment_number+1));
     async function submit() {
         await setDoc(DocumentRef,{title:title, body:comment, comment:[]});
         setComments("");
@@ -53,7 +53,7 @@ const MainContents = (props) => {
         setThought([...thought])
     }
     async function sendComment(index,items,newComment) {
-        const DocumentRefComment = doc(props.db, 'comments', 'comment'+String(index+1));
+        const DocumentRefComment = doc(props.db, props.title+'comments', 'comment'+String(index+1));
         await setDoc(DocumentRefComment,{...items, comment:[...items.comment, newComment]})
         setNewComment("")
         props.function()
@@ -65,13 +65,17 @@ const MainContents = (props) => {
     return (
         <div className='MainContents' style={styleBasic}>
             <div>
-            <h2>動画のタイトル</h2>
+            <h2>{props.videoInfo[0]}</h2>
             </div>
             <div className='underTitle' style={styleUnderTitle}>
-                <h3>概要</h3>
-                <p>概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要概要</p>
-                <h3>ゲスト：名前</h3>
-                <p>ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明ゲストの説明</p>
+            <h3>概要</h3>
+                <p>{props.videoInfo[1]}</p>
+            <h3>ゲスト：{props.videoInfo[2][0]}</h3>
+                <p>{props.videoInfo[2][1]}</p>
+            <h3>関連論文</h3>
+                {props.videoInfo[3].map((item, index) => (
+                    <a key={index} href={item}>{props.videoInfo[4][index]+"　"+item}</a>
+                ))}
             </div>
             <h2 className="report">思考レポート<p className="reportExplain">　タイトル：50字以下　本文：100字以上1000字以下</p></h2>
             <div className="commentArea">

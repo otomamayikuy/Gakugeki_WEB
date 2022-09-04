@@ -26,7 +26,7 @@ function Screen(props) {
   }
   const [reports,setReport]=useState([])
   async function getReport() {
-    const querySnapshot = await getDocs(collection(db, "comments"));
+    const querySnapshot = await getDocs(collection(db, props.title+"comments"));
     const newData=[]
     querySnapshot.forEach((doc) => {
       if(doc.data()) {
@@ -40,6 +40,11 @@ function Screen(props) {
     getURL()
 },[])
   const [scrollPosition, setScrollPosition] = useState(0)
+  const [pageTitle, setPageTitle] = useState(props.title)
+  if(props.title!== pageTitle){
+    getReport()
+    setPageTitle(props.title)
+  }
   useEffect(() => {
     const PositionUp = () => {
       setScrollPosition(window.pageYOffset);
@@ -48,7 +53,6 @@ function Screen(props) {
     PositionUp();
     return () => window.removeEventListener("scroll", PositionUp);
   }, [props.otherURL]);
-  console.log(scrollPosition)
   return (
     <div className="screen">
     <Header/>
@@ -61,7 +65,7 @@ function Screen(props) {
     {url==="" && <div className="blackScreen"></div>}
     <div className="main">
       <div className="contents">
-        <MainContents reports={reports} db={db} function={getReport}/>
+        <MainContents reports={reports} db={db} function={getReport} title={props.title} videoInfo={props.videoInfo}/>
       </div>
       <div className="side">
         <OtherVideos app={props.app} url={props.otherURL}/>
